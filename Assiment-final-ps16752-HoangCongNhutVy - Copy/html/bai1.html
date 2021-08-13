@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HoangCongNhutVy-Ps16752</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script>
+
+        var ptb2 = new Object();
+        
+        ptb2.kiemTra = function(){
+            this.a = document.getElementById("so1").value;
+            this.b = document.getElementById("so2").value;
+            this.c = document.getElementById("so3").value;
+            if(isNaN(this.a) == true || this.a < 0 || this.a > 10 || isNaN(this.b) == true || this.b < 0 || this.b > 10 || isNaN(this.c) == true || this.c < 0 || this.c > 10){
+                document.getElementById("check").innerHTML = "Nhập lại!";
+            }else{
+                document.getElementById("check").innerHTML = " ";
+            }
+            document.getElementById("so4").disabled = false;
+        }
+
+        var dem = 0;
+        ptb2.nhap = function(){
+            this.a = Math.floor((Math.random() * 10) + 1);
+            this.b = Math.floor((Math.random() * 9) + 2);
+            this.c = Math.floor((Math.random() * 8) + 3);
+
+            document.getElementById("so1").value = this.a;
+            document.getElementById("so2").value = this.b;
+            document.getElementById("so3").value = this.c;
+            document.getElementById("so4").disabled = false;
+        }
+
+        ptb2.giai = function(){
+            this.a = Math.floor((Math.random() * 10) + 1);
+            this.b = Math.floor((Math.random() * 9) + 2);
+            this.c = Math.floor((Math.random() * 7) + 3);
+
+            var delta = Math.pow(this.b,2) - 4 * this.a * this.c;
+        if(delta < 0){
+            document.getElementById("giaipt").innerHTML = ("Vô nghiệm");
+        }else if(delta == 0){
+            x0 = -this.b/2*this.a;
+            num = x0;
+            document.getElementById("giaipt").innerHTML = ("Có hai nghiệm kép x1 = x2 : " + num.toFixed(2));
+        }else{
+            var x1 = -(this.b+Math.sqrt(delta))/2 * this.a;
+            var num = x1;
+            var x2 = -(this.b-Math.sqrt(delta))/2 * this.a;
+            var num1 = x2;
+            document.getElementById("giaipt").innerHTML = ("Có hai nghiệm phân biệt: x1 = " + num.toFixed(2) + " và x2 = " +  x2.toFixed(2));
+        }
+        dem++;
+        document.getElementById('soLanXem').innerHTML= dem;
+    }
+    
+
+    var dh = null;
+        function tg(){
+            var time = new Date();
+            var day = time.getDate();
+            var month = time.getMonth();
+            var year = time.getFullYear();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            document.getElementById("dongho").innerHTML = "Bây giờ là " + day + "/" + (month + 1) + "/" + year + " " + h + ":" + m + ":" + s;
+        }
+
+        function starstopDH(){
+            if(dh == null){
+                dh = setInterval("tg()",1000);
+            }else{
+                clearInterval(dh);
+                dh=null;
+            }
+        }
+
+    </script>
+    <style>
+
+        body{
+            background-color: skyblue;
+        }   
+
+        .bang{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center; 
+            margin: auto 400px;
+            background-color: red;
+            padding: 150px;
+            border: 5px solid black;
+            border-radius: 50px;
+            box-shadow: gray 15px 10px 20px;
+            font-size: 20px;
+            color: whitesmoke;
+            font-weight: bold;
+        }
+
+        button{
+            height: 30px;
+        }
+
+        .giaipt{
+            border: 2px solid white;
+        }
+        .check{
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bang">
+        <h3>GIẢI PHƯƠNG TRÌNH BẬC ax<sup>2</sup> + bx + c =0</h3>
+        <div id="solan">Số lần giải: <span id="soLanXem"></span>  lần.</div>
+        <hr>
+        <form>
+        Nhập số a: 
+        <input id="so1" name="so1" type="text" value="3"><br>
+        Nhập số b: 
+        <input id="so2" name="so2" type="text" value="7"><br>
+        Nhập số c: 
+        <input id="so3" name="so3" type="text" value="2"><br><br>
+
+    </form>
+        <button onclick="ptb2.kiemTra();">Kiếm tra</button><br><br>
+        <div class="check" id="check"></div><br>
+        <button id="so4" class="plusOne" onclick="ptb2.giai();" disabled>Giải PT</button>
+        <button onclick="ptb2.nhap();">Cho số</button><br><br>
+
+
+        <div class="giaipt" id="giaipt"></div><br>
+
+        <div class="t" id="dongho"><script>document.write("Bây giờ là: " +day + "/" + month + "/" + year + " " + h + ":" + m + ":" +  s);</script></div>
+
+        <script></script>
+
+    </div>
+    <script>
+        dh = setInterval("tg()",); 
+    </script>
+    
+</body>
+</html>

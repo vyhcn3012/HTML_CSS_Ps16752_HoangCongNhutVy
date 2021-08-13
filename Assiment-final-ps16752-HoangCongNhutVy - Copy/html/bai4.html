@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <form ng-app="b3" ng-controller="ctr1" class="form1" name="form1" action="/" method="post">
+
+        <br /><br />
+        <label>Họ và tên</label><br />
+        <input required minlength="4" maxlength="35" ng-model="ht" id="ht" class="b2" type="text" name="ht" value="" />
+        <em ng-if="form1.ht.$invalid "><br />Nhập họ tên từ 4 đến 35 ký tự</em>
+        <br />
+        <label>Email</label><br />
+        <input ng-model="email" id="email" class="b2" type="email" name="email" value="" />
+        <em ng-hide="form1.email.$valid"><br />Email không hợp lệ</em>
+    
+        <br />
+        <label>Password</label><br />
+        <input required minlength="6" maxlength="20" ng-model="password" class="b2" id="password" type="password" name="password" value="" />
+        <em ng-if="form1.password.$invalid"><br />Password phải có độ dài từ 6-20 ký tự</em>
+        <br />
+        <label>Giới tính</label>
+        <div class="a2">
+            <input ng-model="gt" type="radio" id="Nam" name="gioitinh" value="1" />Nam
+            <input ng-model="gt" type="radio" id="Nữ" name="gioitinh" value="2" />Nữ
+        </div>
+        <em ng-if="!gt">Mời chọn giới tính</em>
+        <br />
+        <label>Sở thích</label>
+        <div class="a2">
+            <input ng-model="ds" type="checkbox" id="ds" name="st" value="1" />Đọc sách
+            <input ng-model="dl" type="checkbox" id="dl" name="st" value="2" />Du lịch
+            <input ng-model="at" type="checkbox" id="at" name="st" value="3" />Ẩm thực
+            <input ng-model="an" type="checkbox" id="an" name="st" value="4" />Âm nhạc
+            <input ng-model="k" type="checkbox" id="k" name="st" value="5" />Khác
+        </div>
+        <em ng-if="!ds && !dl && !at && !an && !k">Xin mời chọn sở thích</em>
+        <br />
+        <label>Quốc tịch</label><br />
+        <select ng-model="quoctich" name="quoctich">                         
+            <option value="1">Vietnamese</option>
+            <option value="2">Indonesian</option>
+            <option value="3">Japanese</option>
+            <option value="4">Indian</option>
+        </select>
+        <em ng-if="!quoctich"><br />Xin mời chọn quốc tịch</em>
+        <br />
+        <label>Thông tin thêm</label><br />
+        <textarea name="them"></textarea>
+    </form>
+</body>
+</html>

@@ -1,0 +1,181 @@
+.cardd{
+    width: 98.9vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url(/img/card.jpg);
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card{
+    display: grid;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-columns: 300px;
+    grid-template-areas: "image" "text" "stats";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
+    text-align: center;
+
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+.card-image{
+    grid-area: image;
+    background: url("/img/defendergame.jpg");
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-size: cover;
+}
+
+.card-text{
+    grid-area: text;
+}
+
+.card-text .date{
+    color: rgb(255, 7, 100);
+    font-size: 13px;
+}
+
+.card-text h2{
+    margin-top: 0px;
+    font-size: 28px;
+    color: black;
+}
+
+.card-text p{
+    color: black;
+}
+
+.card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: rgb(255, 7, 110);
+  }
+
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    color: white;
+    padding:10px;
+  }
+
+.card-stats .type{
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card-stats .value{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card-stats .border{
+    border-left: 1px solid rgb(172, 26, 87);
+    border-right: 1px solid rgb(172, 26, 87);
+}
+
+.card-stats .value sup{
+    font-size: 12px;
+}
+
+.card:hover{
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/*card2*/
+.card-image.card2 {
+    background: url("/img/robloxnewbie.jpg");
+    background-size: cover;
+  }
+  .card-text.card2 .date {
+    color: rgb(255, 77, 7);
+  }
+  .card-stats.card2 .border {
+    border-left: 1px solid rgb(185, 67, 20);
+    border-right: 1px solid rgb(185, 67, 20);
+  }
+  .card-stats.card2 {
+    background: rgb(255, 77, 7);
+  }
+  /*card3*/
+  .card-image.card3 {
+    background: url("/img/blender.jpg");
+    background-size: cover;
+  }
+  .card-text.card3 .date {
+    color: rgb(0, 189, 63);
+  }
+  .card-stats.card3 .border {
+    border-left: 1px solid rgb(14, 122, 50);
+    border-right: 1px solid rgb(14, 122, 50);
+  }
+  .card-stats.card3 {
+    background: rgb(0, 189, 63);
+  }
+
+ .card-image.card5 {
+    background: url("/img/vcode.jpg");
+    background-size: cover;
+  }
+  .card-text.card5 .date {
+    color: rgb(0, 189, 63);
+  }
+  .card-stats.card5 .border {
+    border-left: 1px solid rgb(14, 122, 50);
+    border-right: 1px solid rgb(14, 122, 50);
+  }
+  .card-stats.card5 {
+    background: rgb(0, 189, 63);
+  }
+
+   .card-image.card6 {
+    background: url("/img/game6.jpg");
+    background-size: cover;
+  }
+
+    .card-image.card4 {
+    background: url("/img/game4.jpg");
+    background-size: cover;
+  }
+
+  .add-cart{
+    width: 100%;
+    background-color: darkgrey;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+
+.card:hover .cart1,
+.card:hover .cart2,
+.card:hover .cart3{
+  position: absolute;
+  bottom: 70px;
+  opacity: 1;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.footer{
+	background: rgb(0, 0, 0);
+	height: 150px;
+}
+
+.footer-text-main{
+    margin-left: 650px;
+}

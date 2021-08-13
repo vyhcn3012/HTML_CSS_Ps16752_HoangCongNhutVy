@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Giới Thiệu</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/styledangnhap.css'>
+    <script src='/javas/main.js'></script>
+    <style>
+        .form{
+            position: absolute;
+            width: 1000px;
+            margin: 300px;
+            margin-top: 130px;
+            text-align: center;
+            border: aqua solid 3px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>       
+            function formValidate(){
+        var regExp = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/;
+        var email = document.getElementById("g").value;
+        if (regExp.test(email)) 
+            alert('Email hợp lệ!'); 
+            else 
+                alert('email không hợp lệ!');
+    }
+
+    function checklogin(){
+        if(document.flogin.u.value == ''){
+            document.getElementById("sai").innerHTML = "Bạn chưa nhập Mã sinh viên";
+            document.getElementById("u").style.background = "yellow";
+            document.flogin.u.focus();
+            document.getElementById("sai").style.color = "red";
+            return false;
+        }
+        if(document.flogin.p.value == ''){
+            document.getElementById("sai").innerHTML = "Bạn chưa nhập Họ và tên";
+            document.getElementById("p").style.background = "yellow";
+            document.flogin.p.focus();
+            document.getElementById("sai").style.color = "red";
+            return false;
+        }
+        if(document.flogin.g.value == ''){
+            document.getElementById("sai").innerHTML = "Bạn chưa nhập password";
+            document.getElementById("sai").style.color = "red";
+            document.flogin.g.focus();
+            document.getElementById("g").style.background = "yellow";
+            return false;
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+    <header id="header">
+        <div class="logo"><h2><strong>ViWhi</strong></h2></div>
+        <nav class="menu">
+            <ul>
+                <li><a style="text-decoration: none"  href="/html/index.html" class="so1">Trang Chủ</a></li>
+                <li><a style="text-decoration: none"  href="/html/khoahoc.html" class="so2">Khóa học</a></li>
+                <li><a style="text-decoration: none"  href="/html/gioithieu.html" class="so3">Giới thiệu</a></li>
+                <li><a style="text-decoration: none"  href="/html/dangnhap.html" class="so4">Đăng Nhập</a></li>
+                <li><a style="text-decoration: none"  href="/html/lienhe.html" class="so5">Liên Hệ</a></li>
+                <li><a style="text-decoration: none"  href="/html/buy.html" class="so6">Thanh Toán</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form class="form" name="flogin" onsubmit="return checklogin();" method="post">
+        <label for="fname">Mã sinh viên:</label><br>
+        <input name="u" id="u" type="text"><br><br>
+        <label for="lname">Họ và tên:</label><br>
+        <input name="p" id="p" type="password"><br><br>
+        <label for="lname">Email:</label><br>
+        <input type="email" name="g" id="g" placeholder="Enter your email">
+        <label for="fname">Giới tính: </label><br><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Nam</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Nữ</label><br><br>
+        <label for="female">Sở thích</label><br><br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1">Đọc sách</label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2">Du lịch</label>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3">Ẩm thực</label>
+        <input type="checkbox" id="vehicle2" name="vehicle4" value="Car">
+        <label for="vehicle4">Âm nhạc</label>
+        <input type="checkbox" id="vehicle3" name="vehicle5" value="Boat">
+        <label for="vehicle5">Khác</label><br><br>
+        <label>Quốc tịch</label><br /><br>
+        <select ng-model="quoctich" name="quoctich">                         
+            <option value="1">Vietnamese</option>
+            <option value="2">Indonesian</option>
+            <option value="3">Japanese</option>
+            <option value="4">Indian</option>
+        </select><br><br>
+        <label>Thông tin thêm</label><br />
+        <textarea name="them"></textarea><br><br>
+
+        <input  onfocusout="formValidate()" type="submit" value="Submit">
+        <div class="sai" id="sai"></div>
+    </form>
+    <div class="middle-line"></div>
+    <div class="dot-holder">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    </div>
+</body>
+</html>
